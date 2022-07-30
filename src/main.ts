@@ -9,7 +9,7 @@ app.directive("click-outside", {
   mounted: (el, binding) => {
     (el as any).clickOutsideEvent = (event: Event) => {
       if (!event.target) return;
-      if (!(el == event.target || el.contains(event.target as Node))) {
+      if (!(el === event.target || el.contains(event.target as Node))) {
         binding.value();
       }
     };
