@@ -1,0 +1,15 @@
+$colors: (
+  'black': #000000,
+);
+
+@function color($key) {
+  @return map-get-strict($colors, $key, 'colors');
+}
+
+@function map-get-strict($map, $key, $map-name) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  } @else {
+    @error "ERROR: index '#{$key}' does not exist on map '#{$map-name}'";
+  } 
+}
