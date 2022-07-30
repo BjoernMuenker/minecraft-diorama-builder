@@ -1,5 +1,5 @@
 <template>
-  <h1>Here we go test</h1>
+  <h1>Change headline</h1>
   <div v-if="debug">debug is here</div>
 </template>
 
