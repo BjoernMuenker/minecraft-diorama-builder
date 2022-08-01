@@ -1,11 +1,12 @@
-<template>
-  <h1>Change headline Update</h1>
-  <div v-if="debug">debug is here</div>
-</template>
-
 <script setup lang="ts">
-  import { computed, onBeforeUnmount, onMounted } from "vue";
+  import { computed, ref, onBeforeUnmount, onMounted } from "vue";
   import { appStateStore } from "./store/modules/AppState";
+  import HotBar from "./components/HotBar.vue";
+  import Block from "./components/PlacedBlock.vue";
+  import GroundTiles from "./components/GroundTiles.vue";
+  import Inventory from "./components/Inventory.vue";
+
+  const wrapperElem = ref(null);
 
   onMounted(() => {
     console.log("mounted App.vue");
@@ -26,13 +27,116 @@
         appStateStore.setDebugMode(!appStateStore.debug);
         break;
 
+      case "Escape":
+        appStateStore.removeAllBlocks();
+        appStateStore.playSound("click");
+        break;
+
+      case "e":
+        appStateStore.toggleInventory();
+        appStateStore.playSound("click");
+        break;
+
+      case "r":
+        if (!wrapperElem.value) return;
+        const elem = wrapperElem.value as HTMLElement;
+
+        let { rotateX, rotateY, rotateZ } = elem.dataset;
+        if (!rotateX || !rotateY || !rotateZ) return;
+
+        rotateZ = (parseInt(rotateZ) + 90).toString();
+        elem.dataset.rotateZ = rotateZ.toString();
+
+        elem.style.transform = `
+          rotateX(${parseInt(rotateX)}deg)
+          rotateY(${parseInt(rotateY)}deg)
+          rotateZ(${parseInt(rotateZ)}deg)
+        `;
+
+        appStateStore.playSound("click");
+        break;
+
       default:
         break;
     }
   }
 </script>
 
+<template>
+  <div v-if="debug">debug is here</div>
+
+  <div class="canvas-wrapper">
+    <div class="perspective-wrapper">
+      <div class="rotation-wrapper" ref="wrapperElem" data-rotate-x="70" data-rotate-y="0" data-rotate-z="45">
+        <ground-tiles />
+        <block v-for="block in appStateStore.placedBlocks" :block="block" />
+      </div>
+    </div>
+  </div>
+
+  <div class="ui">
+    <hot-bar />
+  </div>
+
+  <inventory v-if="appStateStore.inventoryOpen" />
+</template>
+
 <style lang="scss">
+  .ui {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+
+    * {
+      pointer-events: all;
+    }
+  }
+
+  .canvas-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    &.hide-grid {
+      .tile {
+        background: transparent;
+        box-shadow: none;
+
+        &:hover {
+          box-shadow: 0px 0px 0px 6px black inset;
+        }
+      }
+    }
+  }
+
+  .perspective-wrapper {
+    position: absolute;
+    perspective: 6000px;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 8%);
+  }
+
+  .rotation-wrapper {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    transform: rotateX(70deg) rotateY(0deg) rotateZ(45deg);
+    // animation: rotate infinite linear 10s;
+    // background-image: url(https://www.filterforge.com/filters/11635-v7.jpg);
+    // background-size: 100px 100px;
+    width: 800px;
+    height: 800px;
+
+    @keyframes rotate {
+      to {
+        transform: rotateX(70deg) rotateY(0deg) rotateZ(360deg);
+      }
+    }
+  }
+
   @mixin generate-color-classes {
     @each $name, $value in $colors {
       .background-#{$name},

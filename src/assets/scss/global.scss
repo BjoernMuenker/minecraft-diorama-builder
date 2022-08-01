@@ -13,3 +13,1367 @@ $colors: (
     @error "ERROR: index '#{$key}' does not exist on map '#{$map-name}'";
   } 
 }
+
+// spritesheet stuff
+[class*="texture"] {
+  background-image: url('./../assets/sprites/sprite.png');
+  background-size: calc(22 * 100px) calc(21 * 100px);
+  image-rendering: pixelated;
+}
+
+.texture-acacia_log_top {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 0);
+}
+.texture-acacia_log {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 0);
+}
+.texture-acacia_planks {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 0);
+}
+.texture-amethyst_block {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 0);
+}
+.texture-ancient_debris_side {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 0);
+}
+.texture-ancient_debris_top {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 0);
+}
+.texture-andesite {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 0);
+}
+.texture-barrel_bottom {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 0);
+}
+.texture-barrel_side {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 0);
+}
+.texture-barrel_top_open {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 0);
+}
+.texture-barrel_top {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 0);
+}
+.texture-basalt_side {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 0);
+}
+.texture-basalt_top {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 0);
+}
+.texture-beacon {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 0);
+}
+.texture-bedrock {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 0);
+}
+.texture-bee_nest_bottom {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 0);
+}
+.texture-bee_nest_front_honey {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 0);
+}
+.texture-bee_nest_front {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 0);
+}
+.texture-bee_nest_side {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 0);
+}
+.texture-bee_nest_top {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 0);
+}
+.texture-beehive_end {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 0);
+}
+.texture-beehive_front_honey {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 0);
+}
+.texture-beehive_front {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 1);
+}
+.texture-beehive_side {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 1);
+}
+.texture-birch_log_top {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 1);
+}
+.texture-birch_log {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 1);
+}
+.texture-birch_planks {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 1);
+}
+.texture-black_concrete_powder {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 1);
+}
+.texture-black_concrete {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 1);
+}
+.texture-black_glazed_terracotta {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 1);
+}
+.texture-black_shulker_box {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 1);
+}
+.texture-black_stained_glass {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 1);
+}
+.texture-black_terracotta {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 1);
+}
+.texture-black_wool {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 1);
+}
+.texture-blackstone_top {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 1);
+}
+.texture-blackstone {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 1);
+}
+.texture-blue_concrete_powder {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 1);
+}
+.texture-blue_concrete {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 1);
+}
+.texture-blue_glazed_terracotta {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 1);
+}
+.texture-blue_ice {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 1);
+}
+.texture-blue_shulker_box {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 1);
+}
+.texture-blue_stained_glass {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 1);
+}
+.texture-blue_terracotta {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 1);
+}
+.texture-blue_wool {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 1);
+}
+.texture-bone_block_side {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 2);
+}
+.texture-bone_block_top {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 2);
+}
+.texture-bookshelf {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 2);
+}
+.texture-brain_coral_block {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 2);
+}
+.texture-bricks {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 2);
+}
+.texture-brown_concrete_powder {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 2);
+}
+.texture-brown_concrete {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 2);
+}
+.texture-brown_glazed_terracotta {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 2);
+}
+.texture-brown_mushroom_block {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 2);
+}
+.texture-brown_shulker_box {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 2);
+}
+.texture-brown_stained_glass {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 2);
+}
+.texture-brown_terracotta {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 2);
+}
+.texture-brown_wool {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 2);
+}
+.texture-bubble_coral_block {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 2);
+}
+.texture-budding_amethyst {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 2);
+}
+.texture-cactus_bottom {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 2);
+}
+.texture-cactus_side {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 2);
+}
+.texture-cactus_top {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 2);
+}
+.texture-calcite {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 2);
+}
+.texture-cartography_table_side1 {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 2);
+}
+.texture-cartography_table_side2 {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 2);
+}
+.texture-cartography_table_side3 {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 2);
+}
+.texture-cartography_table_top {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 3);
+}
+.texture-carved_pumpkin {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 3);
+}
+.texture-chiseled_deepslate {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 3);
+}
+.texture-chiseled_nether_bricks {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 3);
+}
+.texture-chiseled_polished_blackstone {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 3);
+}
+.texture-chiseled_quartz_block_top {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 3);
+}
+.texture-chiseled_quartz_block {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 3);
+}
+.texture-chiseled_red_sandstone {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 3);
+}
+.texture-chiseled_sandstone {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 3);
+}
+.texture-chiseled_stone_bricks {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 3);
+}
+.texture-chorus_flower_dead {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 3);
+}
+.texture-chorus_flower {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 3);
+}
+.texture-chorus_plant {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 3);
+}
+.texture-clay {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 3);
+}
+.texture-coal_block {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 3);
+}
+.texture-coal_ore {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 3);
+}
+.texture-coarse_dirt {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 3);
+}
+.texture-cobbled_deepslate {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 3);
+}
+.texture-cobblestone {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 3);
+}
+.texture-cobweb {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 3);
+}
+.texture-copper_block {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 3);
+}
+.texture-copper_ore {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 3);
+}
+.texture-cracked_deepslate_bricks {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 4);
+}
+.texture-cracked_deepslate_tiles {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 4);
+}
+.texture-cracked_nether_bricks {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 4);
+}
+.texture-cracked_polished_blackstone_bricks {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 4);
+}
+.texture-cracked_stone_bricks {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 4);
+}
+.texture-crafting_table_front {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 4);
+}
+.texture-crafting_table_side {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 4);
+}
+.texture-crafting_table_top {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 4);
+}
+.texture-crimson_door_bottom {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 4);
+}
+.texture-crimson_door_top {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 4);
+}
+.texture-crimson_nylium_side {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 4);
+}
+.texture-crimson_nylium {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 4);
+}
+.texture-crimson_planks {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 4);
+}
+.texture-crimson_stem_top {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 4);
+}
+.texture-crimson_stem {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 4);
+}
+.texture-crying_obsidian {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 4);
+}
+.texture-cut_copper {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 4);
+}
+.texture-cut_red_sandstone {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 4);
+}
+.texture-cut_sandstone {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 4);
+}
+.texture-cyan_concrete_powder {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 4);
+}
+.texture-cyan_concrete {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 4);
+}
+.texture-cyan_glazed_terracotta {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 4);
+}
+.texture-cyan_shulker_box {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 5);
+}
+.texture-cyan_stained_glass {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 5);
+}
+.texture-cyan_terracotta {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 5);
+}
+.texture-cyan_wool {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 5);
+}
+.texture-dark_oak_log_top {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 5);
+}
+.texture-dark_oak_log {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 5);
+}
+.texture-dark_oak_planks {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 5);
+}
+.texture-dark_prismarine {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 5);
+}
+.texture-dead_brain_coral_block {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 5);
+}
+.texture-dead_bubble_coral_block {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 5);
+}
+.texture-dead_fire_coral_block {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 5);
+}
+.texture-dead_horn_coral_block {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 5);
+}
+.texture-dead_tube_coral_block {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 5);
+}
+.texture-deepslate_bricks {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 5);
+}
+.texture-deepslate_coal_ore {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 5);
+}
+.texture-deepslate_copper_ore {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 5);
+}
+.texture-deepslate_diamond_ore {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 5);
+}
+.texture-deepslate_emerald_ore {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 5);
+}
+.texture-deepslate_gold_ore {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 5);
+}
+.texture-deepslate_iron_ore {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 5);
+}
+.texture-deepslate_lapis_ore {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 5);
+}
+.texture-deepslate_redstone_ore {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 5);
+}
+.texture-deepslate_tiles {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 6);
+}
+.texture-deepslate_top {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 6);
+}
+.texture-deepslate {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_0 {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_1 {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_2 {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_3 {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_4 {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_5 {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_6 {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_7 {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_8 {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 6);
+}
+.texture-destroy_stage_9 {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 6);
+}
+.texture-diamond_block {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 6);
+}
+.texture-diamond_ore {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 6);
+}
+.texture-diorite {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 6);
+}
+.texture-dirt_path_side {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 6);
+}
+.texture-dirt_path_top {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 6);
+}
+.texture-dirt {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 6);
+}
+.texture-dispenser_front_vertical {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 6);
+}
+.texture-dispenser_front {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 6);
+}
+.texture-dried_kelp_bottom {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 6);
+}
+.texture-dried_kelp_side {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 7);
+}
+.texture-dried_kelp_top {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 7);
+}
+.texture-dripstone_block {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 7);
+}
+.texture-dropper_front_vertical {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 7);
+}
+.texture-dropper_front {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 7);
+}
+.texture-emerald_block {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 7);
+}
+.texture-emerald_ore {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 7);
+}
+.texture-end_stone_bricks {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 7);
+}
+.texture-end_stone {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 7);
+}
+.texture-exposed_copper {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 7);
+}
+.texture-exposed_cut_copper {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 7);
+}
+.texture-farmland_moist {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 7);
+}
+.texture-farmland {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 7);
+}
+.texture-fire_coral_block {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 7);
+}
+.texture-fletching_table_front {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 7);
+}
+.texture-fletching_table_side {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 7);
+}
+.texture-fletching_table_top {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 7);
+}
+.texture-frosted_ice_0 {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 7);
+}
+.texture-frosted_ice_1 {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 7);
+}
+.texture-frosted_ice_2 {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 7);
+}
+.texture-frosted_ice_3 {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 7);
+}
+.texture-furnace_front_on {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 7);
+}
+.texture-furnace_front {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 8);
+}
+.texture-furnace_side {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 8);
+}
+.texture-furnace_top {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 8);
+}
+.texture-gilded_blackstone {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 8);
+}
+.texture-glass {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 8);
+}
+.texture-glowstone {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 8);
+}
+.texture-gold_block {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 8);
+}
+.texture-gold_ore {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 8);
+}
+.texture-granite {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 8);
+}
+.texture-grass_block_side_overlay {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 8);
+}
+.texture-grass_block_side {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 8);
+}
+.texture-grass_block_snow {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 8);
+}
+.texture-grass_block_top {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 8);
+}
+.texture-gravel {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 8);
+}
+.texture-gray_concrete_powder {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 8);
+}
+.texture-gray_concrete {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 8);
+}
+.texture-gray_glazed_terracotta {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 8);
+}
+.texture-gray_shulker_box {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 8);
+}
+.texture-gray_stained_glass {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 8);
+}
+.texture-gray_terracotta {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 8);
+}
+.texture-gray_wool {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 8);
+}
+.texture-green_concrete_powder {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 8);
+}
+.texture-green_concrete {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 9);
+}
+.texture-green_glazed_terracotta {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 9);
+}
+.texture-green_shulker_box {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 9);
+}
+.texture-green_stained_glass {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 9);
+}
+.texture-green_terracotta {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 9);
+}
+.texture-green_wool {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 9);
+}
+.texture-hay_block_side {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 9);
+}
+.texture-hay_block_top {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 9);
+}
+.texture-honey_block_bottom {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 9);
+}
+.texture-honey_block_side {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 9);
+}
+.texture-honey_block_top {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 9);
+}
+.texture-honeycomb_block {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 9);
+}
+.texture-horn_coral_block {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 9);
+}
+.texture-ice {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 9);
+}
+.texture-iron_bars {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 9);
+}
+.texture-iron_block {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 9);
+}
+.texture-iron_door_bottom {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 9);
+}
+.texture-iron_ore {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 9);
+}
+.texture-item_frame {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 9);
+}
+.texture-jack_o_lantern {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 9);
+}
+.texture-jukebox_side {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 9);
+}
+.texture-jukebox_top {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 9);
+}
+.texture-jungle_door_bottom {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 10);
+}
+.texture-jungle_log_top {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 10);
+}
+.texture-jungle_log {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 10);
+}
+.texture-jungle_planks {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 10);
+}
+.texture-lapis_block {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 10);
+}
+.texture-lapis_ore {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 10);
+}
+.texture-light_blue_concrete_powder {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 10);
+}
+.texture-light_blue_concrete {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 10);
+}
+.texture-light_blue_glazed_terracotta {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 10);
+}
+.texture-light_blue_shulker_box {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 10);
+}
+.texture-light_blue_stained_glass {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 10);
+}
+.texture-light_blue_terracotta {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 10);
+}
+.texture-light_blue_wool {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 10);
+}
+.texture-light_gray_concrete_powder {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 10);
+}
+.texture-light_gray_concrete {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 10);
+}
+.texture-light_gray_glazed_terracotta {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 10);
+}
+.texture-light_gray_shulker_box {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 10);
+}
+.texture-light_gray_stained_glass {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 10);
+}
+.texture-light_gray_terracotta {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 10);
+}
+.texture-light_gray_wool {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 10);
+}
+.texture-lime_concrete_powder {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 10);
+}
+.texture-lime_concrete {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 10);
+}
+.texture-lime_glazed_terracotta {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 11);
+}
+.texture-lime_shulker_box {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 11);
+}
+.texture-lime_stained_glass {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 11);
+}
+.texture-lime_terracotta {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 11);
+}
+.texture-lime_wool {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 11);
+}
+.texture-lodestone_side {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 11);
+}
+.texture-lodestone_top {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 11);
+}
+.texture-loom_bottom {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 11);
+}
+.texture-loom_front {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 11);
+}
+.texture-loom_side {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 11);
+}
+.texture-loom_top {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 11);
+}
+.texture-magenta_concrete_powder {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 11);
+}
+.texture-magenta_concrete {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 11);
+}
+.texture-magenta_glazed_terracotta {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 11);
+}
+.texture-magenta_shulker_box {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 11);
+}
+.texture-magenta_stained_glass {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 11);
+}
+.texture-magenta_terracotta {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 11);
+}
+.texture-magenta_wool {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 11);
+}
+.texture-magma {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 11);
+}
+.texture-mangrove_log_top {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 11);
+}
+.texture-mangrove_log {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 11);
+}
+.texture-mangrove_planks {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 11);
+}
+.texture-melon_side {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 12);
+}
+.texture-melon_top {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 12);
+}
+.texture-moss_block {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 12);
+}
+.texture-mossy_cobblestone {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 12);
+}
+.texture-mossy_stone_bricks {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 12);
+}
+.texture-mud_bricks {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 12);
+}
+.texture-mud {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 12);
+}
+.texture-muddy_mangrove_roots_side {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 12);
+}
+.texture-muddy_mangrove_roots_top {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 12);
+}
+.texture-mushroom_block_inside {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 12);
+}
+.texture-mushroom_stem {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 12);
+}
+.texture-mycelium_side {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 12);
+}
+.texture-mycelium_top {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 12);
+}
+.texture-nether_bricks {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 12);
+}
+.texture-nether_gold_ore {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 12);
+}
+.texture-nether_quartz_ore {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 12);
+}
+.texture-nether_wart_block {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 12);
+}
+.texture-netherite_block {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 12);
+}
+.texture-netherrack {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 12);
+}
+.texture-note_block {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 12);
+}
+.texture-oak_log_top {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 12);
+}
+.texture-oak_log {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 12);
+}
+.texture-oak_planks {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 13);
+}
+.texture-observer_back_on {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 13);
+}
+.texture-observer_back {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 13);
+}
+.texture-observer_front {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 13);
+}
+.texture-observer_side {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 13);
+}
+.texture-observer_top {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 13);
+}
+.texture-obsidian {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 13);
+}
+.texture-ochre_froglight_side {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 13);
+}
+.texture-ochre_froglight_top {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 13);
+}
+.texture-orange_concrete_powder {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 13);
+}
+.texture-orange_concrete {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 13);
+}
+.texture-orange_glazed_terracotta {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 13);
+}
+.texture-orange_shulker_box {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 13);
+}
+.texture-orange_stained_glass {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 13);
+}
+.texture-orange_terracotta {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 13);
+}
+.texture-orange_wool {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 13);
+}
+.texture-oxidized_copper {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 13);
+}
+.texture-oxidized_cut_copper {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 13);
+}
+.texture-packed_ice {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 13);
+}
+.texture-packed_mud {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 13);
+}
+.texture-pearlescent_froglight_side {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 13);
+}
+.texture-pearlescent_froglight_top {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 13);
+}
+.texture-pink_concrete_powder {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 14);
+}
+.texture-pink_concrete {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 14);
+}
+.texture-pink_glazed_terracotta {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 14);
+}
+.texture-pink_shulker_box {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 14);
+}
+.texture-pink_stained_glass {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 14);
+}
+.texture-pink_terracotta {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 14);
+}
+.texture-pink_wool {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 14);
+}
+.texture-piston_bottom {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 14);
+}
+.texture-piston_inner {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 14);
+}
+.texture-piston_side {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 14);
+}
+.texture-piston_top_sticky {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 14);
+}
+.texture-piston_top {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 14);
+}
+.texture-podzol_side {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 14);
+}
+.texture-podzol_top {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 14);
+}
+.texture-polished_andesite {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 14);
+}
+.texture-polished_basalt_side {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 14);
+}
+.texture-polished_basalt_top {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 14);
+}
+.texture-polished_blackstone_bricks {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 14);
+}
+.texture-polished_blackstone {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 14);
+}
+.texture-polished_deepslate {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 14);
+}
+.texture-polished_diorite {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 14);
+}
+.texture-polished_granite {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 14);
+}
+.texture-powder_snow {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 15);
+}
+.texture-prismarine_bricks {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 15);
+}
+.texture-pumpkin_side {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 15);
+}
+.texture-pumpkin_top {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 15);
+}
+.texture-purple_concrete_powder {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 15);
+}
+.texture-purple_concrete {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 15);
+}
+.texture-purple_glazed_terracotta {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 15);
+}
+.texture-purple_shulker_box {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 15);
+}
+.texture-purple_stained_glass {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 15);
+}
+.texture-purple_terracotta {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 15);
+}
+.texture-purple_wool {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 15);
+}
+.texture-purpur_block {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 15);
+}
+.texture-purpur_pillar_top {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 15);
+}
+.texture-purpur_pillar {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 15);
+}
+.texture-quartz_block_bottom {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 15);
+}
+.texture-quartz_block_side {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 15);
+}
+.texture-quartz_block_top {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 15);
+}
+.texture-quartz_bricks {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 15);
+}
+.texture-quartz_pillar_top {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 15);
+}
+.texture-quartz_pillar {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 15);
+}
+.texture-raw_copper_block {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 15);
+}
+.texture-raw_gold_block {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 15);
+}
+.texture-raw_iron_block {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 16);
+}
+.texture-red_concrete_powder {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 16);
+}
+.texture-red_concrete {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 16);
+}
+.texture-red_glazed_terracotta {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 16);
+}
+.texture-red_mushroom_block {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 16);
+}
+.texture-red_nether_bricks {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 16);
+}
+.texture-red_sand {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 16);
+}
+.texture-red_sandstone_bottom {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 16);
+}
+.texture-red_sandstone_top {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 16);
+}
+.texture-red_sandstone {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 16);
+}
+.texture-red_shulker_box {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 16);
+}
+.texture-red_stained_glass {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 16);
+}
+.texture-red_terracotta {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 16);
+}
+.texture-red_wool {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 16);
+}
+.texture-redstone_block {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 16);
+}
+.texture-redstone_lamp_on {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 16);
+}
+.texture-redstone_lamp {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 16);
+}
+.texture-redstone_ore {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 16);
+}
+.texture-reinforced_deepslate_bottom {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 16);
+}
+.texture-reinforced_deepslate_side {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 16);
+}
+.texture-reinforced_deepslate_top {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 16);
+}
+.texture-rooted_dirt {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 16);
+}
+.texture-sand {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 17);
+}
+.texture-sandstone_bottom {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 17);
+}
+.texture-sandstone_top {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 17);
+}
+.texture-sandstone {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 17);
+}
+.texture-shroomlight {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 17);
+}
+.texture-shulker_box {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 17);
+}
+.texture-slime_block {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 17);
+}
+.texture-smithing_table_bottom {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 17);
+}
+.texture-smithing_table_front {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 17);
+}
+.texture-smithing_table_side {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 17);
+}
+.texture-smithing_table_top {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 17);
+}
+.texture-smooth_basalt {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 17);
+}
+.texture-smooth_stone_slab_side {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 17);
+}
+.texture-smooth_stone {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 17);
+}
+.texture-snow {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 17);
+}
+.texture-soul_sand {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 17);
+}
+.texture-soul_soil {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 17);
+}
+.texture-sponge {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 17);
+}
+.texture-spruce_log_top {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 17);
+}
+.texture-spruce_log {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 17);
+}
+.texture-spruce_planks {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 17);
+}
+.texture-spruce_trapdoor {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 17);
+}
+.texture-stone_bricks {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 18);
+}
+.texture-stone {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 18);
+}
+.texture-stripped_acacia_log_top {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 18);
+}
+.texture-stripped_acacia_log {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 18);
+}
+.texture-stripped_birch_log_top {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 18);
+}
+.texture-stripped_birch_log {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 18);
+}
+.texture-stripped_crimson_stem_top {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 18);
+}
+.texture-stripped_crimson_stem {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 18);
+}
+.texture-stripped_dark_oak_log_top {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 18);
+}
+.texture-stripped_dark_oak_log {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 18);
+}
+.texture-stripped_jungle_log_top {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 18);
+}
+.texture-stripped_jungle_log {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 18);
+}
+.texture-stripped_mangrove_log_top {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 18);
+}
+.texture-stripped_mangrove_log {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 18);
+}
+.texture-stripped_oak_log_top {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 18);
+}
+.texture-stripped_oak_log {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 18);
+}
+.texture-stripped_spruce_log_top {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 18);
+}
+.texture-stripped_spruce_log {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 18);
+}
+.texture-stripped_warped_stem_top {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 18);
+}
+.texture-stripped_warped_stem {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 18);
+}
+.texture-target_side {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 18);
+}
+.texture-target_top {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 18);
+}
+.texture-terracotta {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 19);
+}
+.texture-tinted_glass {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 19);
+}
+.texture-tnt_bottom {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 19);
+}
+.texture-tnt_side {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 19);
+}
+.texture-tnt_top {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 19);
+}
+.texture-tube_coral_block {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 19);
+}
+.texture-tuff {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 19);
+}
+.texture-verdant_froglight_side {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 19);
+}
+.texture-verdant_froglight_top {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 19);
+}
+.texture-warped_door_bottom {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 19);
+}
+.texture-warped_door_top {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 19);
+}
+.texture-warped_nylium_side {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 19);
+}
+.texture-warped_nylium {
+  background-position: calc(100% / 21 * 12) calc(100% / 20 * 19);
+}
+.texture-warped_planks {
+  background-position: calc(100% / 21 * 13) calc(100% / 20 * 19);
+}
+.texture-warped_stem_top {
+  background-position: calc(100% / 21 * 14) calc(100% / 20 * 19);
+}
+.texture-warped_stem {
+  background-position: calc(100% / 21 * 15) calc(100% / 20 * 19);
+}
+.texture-warped_wart_block {
+  background-position: calc(100% / 21 * 16) calc(100% / 20 * 19);
+}
+.texture-weathered_copper {
+  background-position: calc(100% / 21 * 17) calc(100% / 20 * 19);
+}
+.texture-weathered_cut_copper {
+  background-position: calc(100% / 21 * 18) calc(100% / 20 * 19);
+}
+.texture-wet_sponge {
+  background-position: calc(100% / 21 * 19) calc(100% / 20 * 19);
+}
+.texture-white_concrete_powder {
+  background-position: calc(100% / 21 * 20) calc(100% / 20 * 19);
+}
+.texture-white_concrete {
+  background-position: calc(100% / 21 * 21) calc(100% / 20 * 19);
+}
+.texture-white_glazed_terracotta {
+  background-position: calc(100% / 21 * 0) calc(100% / 20 * 20);
+}
+.texture-white_shulker_box {
+  background-position: calc(100% / 21 * 1) calc(100% / 20 * 20);
+}
+.texture-white_stained_glass {
+  background-position: calc(100% / 21 * 2) calc(100% / 20 * 20);
+}
+.texture-white_terracotta {
+  background-position: calc(100% / 21 * 3) calc(100% / 20 * 20);
+}
+.texture-white_wool {
+  background-position: calc(100% / 21 * 4) calc(100% / 20 * 20);
+}
+.texture-yellow_concrete_powder {
+  background-position: calc(100% / 21 * 5) calc(100% / 20 * 20);
+}
+.texture-yellow_concrete {
+  background-position: calc(100% / 21 * 6) calc(100% / 20 * 20);
+}
+.texture-yellow_glazed_terracotta {
+  background-position: calc(100% / 21 * 7) calc(100% / 20 * 20);
+}
+.texture-yellow_shulker_box {
+  background-position: calc(100% / 21 * 8) calc(100% / 20 * 20);
+}
+.texture-yellow_stained_glass {
+  background-position: calc(100% / 21 * 9) calc(100% / 20 * 20);
+}
+.texture-yellow_terracotta {
+  background-position: calc(100% / 21 * 10) calc(100% / 20 * 20);
+}
+.texture-yellow_wool {
+  background-position: calc(100% / 21 * 11) calc(100% / 20 * 20);
+}
