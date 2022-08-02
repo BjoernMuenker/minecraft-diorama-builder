@@ -27,11 +27,20 @@
   function hideLabel() {
     label.value = null;
   }
+
+  function closeInventory(event: MouseEvent) {
+    if (!event.target) return;
+    if ((event.target as HTMLElement).classList.contains("modal")) appStateStore.closeInventory();
+  }
 </script>
 
 <template>
-  <div class="modal">
+  <div class="modal" @click="closeInventory">
     <div class="inventory">
+      <div class="search-bar">
+        <label for="search-input">Search Items</label>
+        <input type="text" id="search-input" />
+      </div>
       <div class="slots">
         <div
           v-for="block in Object.values(BlockTypeId)"
@@ -49,6 +58,14 @@
           <block-preview :block-type-id="item" />
         </div>
       </div>
+      <div class="top-left-corner"></div>
+      <div class="top-right-corner"></div>
+      <div class="bottom-right-corner"></div>
+      <div class="bottom-left-corner"></div>
+      <div class="top-left-shadow"></div>
+      <div class="top-right-shadow"></div>
+      <div class="bottom-right-shadow"></div>
+      <div class="bottom-left-shadow"></div>
     </div>
   </div>
 </template>
@@ -69,7 +86,70 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background: grey;
+    background: red;
+    background: #c6c6c6;
+    border: 3px solid black;
+    box-shadow: -6px -6px 0 0 rgba(black, 0.6) inset, 6px 6px 0 0 rgba(white, 1) inset;
+    clip-path: polygon(
+      3px 0%,
+      calc(100% - 9px) 0%,
+      calc(100% - 9px) 3px,
+      calc(100% - 6px) 3px,
+      calc(100% - 6px) 6px,
+      calc(100% - 3px) 6px,
+      calc(100% - 3px) 9px,
+      100% 9px,
+      100% calc(100% - 6px),
+      calc(100% - 3px) calc(100% - 6px),
+      calc(100% - 3px) calc(100% - 3px),
+      calc(100% - 6px) calc(100% - 3px),
+      calc(100% - 6px) 100%,
+      9px 100%,
+      9px calc(100% - 3px),
+      6px calc(100% - 3px),
+      6px calc(100% - 6px),
+      3px calc(100% - 6px),
+      3px calc(100% - 9px),
+      0% calc(100% - 9px),
+      0% 6px,
+      3px 6px,
+      3px 3px,
+      6px 3px,
+      6px 0%
+    );
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 9px;
+
+      label {
+        flex-shrink: 0;
+        width: 180px;
+        font-size: 21px;
+        transform: translateY(-0.15em);
+        color: #414141;
+      }
+
+      #search-input {
+        width: 100%;
+        box-shadow: 3px 3px 0 0 rgba(black, 0.6) inset, -3px -3px 0 0 rgba(white, 1) inset;
+        border: 0;
+        padding: 6px 10px 10px 10px;
+        background: #8a8a8a;
+        color: white;
+        text-shadow: 2px 2px black;
+        font-size: 18px;
+
+        &:hover:not(:focus) {
+          background: rgba(255, 255, 255, 0.5);
+        }
+
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
 
     .slots {
       display: flex;
@@ -111,7 +191,8 @@
       position: relative;
       width: 60px;
       height: 60px;
-      box-shadow: 0px 0px 0px 1px inset white;
+      box-shadow: 3px 3px 0 0 rgba(black, 0.6) inset, -3px -3px 0 0 rgba(white, 1) inset;
+      background: #8a8a8a;
 
       &:hover {
         background: rgba(255, 255, 255, 0.5);
@@ -124,6 +205,72 @@
 
     .block-preview {
       overflow: visible;
+    }
+
+    [class*="corner"],
+    [class*="shadow"] {
+      position: absolute;
+      pointer-events: none;
+      background: black;
+    }
+
+    [class*="shadow"] {
+      width: 3px;
+      height: 3px;
+    }
+
+    .top-left-corner {
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 3px;
+    }
+
+    .top-right-corner {
+      right: 0;
+      top: 0;
+      width: 6px;
+      height: 6px;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 50%, 0% 50%);
+    }
+
+    .bottom-right-corner {
+      right: 0;
+      bottom: 0;
+      width: 3px;
+      height: 3px;
+    }
+
+    .bottom-left-corner {
+      left: 0;
+      bottom: 0;
+      width: 6px;
+      height: 6px;
+      clip-path: polygon(0% 0%, 50% 0%, 50% 50%, 100% 50%, 100% 100%, 0% 100%);
+    }
+
+    .top-left-shadow {
+      background: white;
+      left: 6px;
+      top: 6px;
+    }
+
+    .top-right-shadow {
+      background: white;
+      right: 3px;
+      top: 3px;
+    }
+
+    .bottom-right-shadow {
+      background: rgba(black, 0.6);
+      right: 6px;
+      bottom: 6px;
+    }
+
+    .bottom-left-shadow {
+      background: rgba(white, 0.6);
+      left: 3px;
+      bottom: 3px;
     }
   }
 </style>

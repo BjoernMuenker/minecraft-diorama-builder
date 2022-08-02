@@ -34,7 +34,6 @@
 
       case "e":
         appStateStore.toggleInventory();
-        appStateStore.playSound("click");
         break;
 
       case "r":
@@ -177,7 +176,7 @@
     padding: 0;
   }
 
-  #app {
+  * {
     font-family: "Minecraft", monospace;
     font-variant-ligatures: none;
     -webkit-font-smoothing: antialiased;

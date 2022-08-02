@@ -95,7 +95,7 @@ class AppStateStoreModule extends VuexModule {
 
   @Mutation
   playSound(id: string) {
-    this._sound.play("click");
+    this._sound.play(id);
   }
 
   @Mutation
@@ -132,16 +132,19 @@ class AppStateStoreModule extends VuexModule {
 
   @Mutation
   openInventory() {
+    this._sound.play("click");
     this._inventoryOpen = true;
   }
 
   @Mutation
   closeInventory() {
+    this._sound.play("click");
     this._inventoryOpen = false;
   }
 
   @Mutation
   toggleInventory() {
+    this._sound.play("click");
     this._inventoryOpen = !this._inventoryOpen;
   }
 }

@@ -10,7 +10,6 @@
   .app-button {
     cursor: pointer;
     outline: 0;
-    font-family: "Minecraft";
     position: relative;
     display: inline-block;
     border: 3px solid black;
