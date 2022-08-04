@@ -11,16 +11,32 @@
   const label: Ref<BlockTypeId | null> = ref(null);
   const inventoryRef: Ref<HTMLElement | null> = ref(null);
   const scrollWrapperRef: Ref<HTMLElement | null> = ref(null);
+  const scrollBarHandlerRef: Ref<HTMLElement | null> = ref(null);
   const focusedBlockName = computed(() => {
     return label.value ? toBlockName(label.value) : "";
   });
 
   onMounted(() => {
+    scrollWrapperRef.value?.addEventListener("scroll", onScroll, true);
+    setScrollBarHandlerHeight();
+
     gsap.registerPlugin(Draggable);
 
     const dropZones = inventoryRef.value?.querySelectorAll(".hot-bar .slot") as NodeListOf<HTMLElement>;
+    const scrollBarInner = document.querySelector(".scroll-bar .inner");
+    const scrollBarHandlerHeight = scrollBarHandlerRef.value!.clientHeight;
     const hitTestTreshold = "20%";
     const willDropClass = "will-drop";
+
+    // needs some more work
+    // Draggable.create(scrollBarHandlerRef.value, {
+    //   type: "y",
+    //   bounds: scrollBarInner,
+    //   onDrag: function () {
+    //     const scrollPercentage = (this.y / (scrollBarInner!.clientHeight - scrollBarHandlerHeight)) * 100;
+    //     scrollWrapperRef.value!.scrollTop = (scrollWrapperRef.value!.scrollHeight / 100) * scrollPercentage;
+    //   },
+    // });
 
     Draggable.create("[draggable]", {
       bounds: inventoryRef.value,
@@ -87,37 +103,57 @@
     if (!event.target) return;
     if ((event.target as HTMLElement).classList.contains("modal")) appStateStore.closeInventory();
   }
+
+  function onScroll(event: Event) {
+    const wrapper = scrollWrapperRef.value!;
+    scrollBarHandlerRef.value!.style.top = (wrapper.scrollTop / wrapper.scrollHeight) * 100 + "%";
+  }
+
+  function setScrollBarHandlerHeight() {
+    if (!scrollBarHandlerRef.value || !scrollWrapperRef.value) return;
+    const fullHeight = scrollWrapperRef.value.scrollHeight;
+    const visibleHeight = scrollWrapperRef.value.clientHeight;
+    const visiblePercentage = (visibleHeight / fullHeight) * 100;
+    scrollBarHandlerRef.value.style.height = visiblePercentage + "%";
+  }
 </script>
 
 <template>
   <div class="modal" @click="closeInventory">
     <div class="inventory" ref="inventoryRef">
-      <div class="search-bar">
-        <label for="search-input">Search Items</label>
-        <input type="text" id="search-input" />
-      </div>
-      <div class="clones">
-        <block-preview v-for="block in Object.values(BlockTypeId)" :key="block" :block-type-id="block" draggable="true" />
-      </div>
-      <div class="slots" ref="scrollWrapperRef">
-        <div
-          v-for="(block, index) in Object.values(BlockTypeId)"
-          :key="block"
-          class="slot"
-          @mouseenter="showLabel($event, block)"
-          @mouseleave="hideLabel"
-        >
-          <block-preview
-            :block-type-id="block"
-            @mousedown="triggerDrag($event, index)"
-            @touchstart="triggerDrag($event, index)"
-          />
-          <div class="label">{{ focusedBlockName }}</div>
+      <div class="main">
+        <div class="search-bar">
+          <label for="search-input">Search Items</label>
+          <input type="text" id="search-input" />
+        </div>
+        <div class="clones">
+          <block-preview v-for="block in Object.values(BlockTypeId)" :key="block" :block-type-id="block" draggable="true" />
+        </div>
+        <div class="slots" ref="scrollWrapperRef">
+          <div
+            v-for="(block, index) in Object.values(BlockTypeId)"
+            :key="block"
+            class="slot"
+            @mouseenter="showLabel($event, block)"
+            @mouseleave="hideLabel"
+          >
+            <block-preview
+              :block-type-id="block"
+              @mousedown="triggerDrag($event, index)"
+              @touchstart="triggerDrag($event, index)"
+            />
+            <div class="label">{{ focusedBlockName }}</div>
+          </div>
+        </div>
+        <div class="hot-bar">
+          <div v-for="item in appStateStore.hotBarItems" class="slot">
+            <block-preview :block-type-id="item" />
+          </div>
         </div>
       </div>
-      <div class="hot-bar">
-        <div v-for="item in appStateStore.hotBarItems" class="slot">
-          <block-preview :block-type-id="item" />
+      <div class="scroll-bar">
+        <div class="inner">
+          <div class="handler" ref="scrollBarHandlerRef"></div>
         </div>
       </div>
       <div class="top-left-corner"></div>
@@ -140,13 +176,14 @@
     left: 0;
     top: 0;
     background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .inventory {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    display: flex;
     padding: 20px;
     background: #c6c6c6;
     border: 3px solid black;
@@ -212,6 +249,41 @@
       }
     }
 
+    .scroll-bar {
+      position: relative;
+      margin-left: 20px;
+      box-shadow: 3px 3px 0 0 rgba(black, 0.6) inset, -3px -3px 0 0 white inset;
+      background: #8a8a8a;
+      width: 40px;
+      height: inherit;
+      .inner {
+        position: absolute;
+        left: 3px;
+        top: 3px;
+        height: calc(100% - 6px);
+        width: calc(100% - 6px);
+      }
+
+      .handler {
+        position: absolute;
+        top: 0;
+        height: 100px;
+        width: 100%;
+        background: #c6c6c6;
+        box-shadow: -3px -3px 0 0 rgba(black, 0.6) inset, 3px 3px 0 0 white inset;
+
+        &::after {
+          position: absolute;
+          content: "";
+          width: calc(100% - 12px);
+          height: calc(100% - 12px);
+          top: 6px;
+          left: 6px;
+          background: repeating-linear-gradient(#8d8d8d, #8d8d8d 3px, #c6c6c6 3px, #c6c6c6 6px);
+        }
+      }
+    }
+
     .clones {
       position: absolute;
 
@@ -225,12 +297,12 @@
     .slots {
       display: flex;
       flex-wrap: wrap;
-      height: 60px * 5;
+      height: 60px * 3;
       width: 60px * 9;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
       overflow: auto;
       z-index: 10;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
 
       &::-webkit-scrollbar {
         display: none;
