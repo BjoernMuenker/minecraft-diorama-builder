@@ -1,15 +1,70 @@
 <script setup lang="ts">
   import { computed } from "@vue/reactivity";
-  import { Ref, ref } from "vue";
+  import { onMounted, Ref, ref } from "vue";
   import { BlockTypeId } from "../types/BlockTypeId";
   import { toBlockName } from "../utils/filter";
   import BlockPreview from "./BlockPreview.vue";
   import { appStateStore } from "../store/modules/AppState";
+  import { gsap } from "gsap";
+  import { Draggable } from "gsap/Draggable";
 
   const label: Ref<BlockTypeId | null> = ref(null);
+  const inventoryRef: Ref<HTMLElement | null> = ref(null);
+  const scrollWrapperRef: Ref<HTMLElement | null> = ref(null);
   const focusedBlockName = computed(() => {
     return label.value ? toBlockName(label.value) : "";
   });
+
+  onMounted(() => {
+    gsap.registerPlugin(Draggable);
+
+    const dropZones = inventoryRef.value?.querySelectorAll(".hot-bar .slot") as NodeListOf<HTMLElement>;
+    const hitTestTreshold = "20%";
+    const willDropClass = "will-drop";
+
+    Draggable.create("[draggable]", {
+      bounds: inventoryRef.value,
+      onDrag: function () {
+        dropZones.forEach((zone) => zone.classList.remove(willDropClass));
+        for (let i = 0; i < dropZones.length; i++) {
+          if (Draggable.hitTest(this.target, dropZones[i], hitTestTreshold)) {
+            dropZones[i].classList.add(willDropClass);
+            break;
+          }
+        }
+      },
+      onDragEnd: function () {
+        for (let i = 0; i < dropZones.length; i++) {
+          if (Draggable.hitTest(this.target, dropZones[i], hitTestTreshold)) {
+            const blockTypeId = this.target.dataset.blockTypeId;
+            appStateStore.updateHotBarItem({ index: i, blockTypeId });
+            dropZones[i].classList.remove(willDropClass);
+            break;
+          }
+        }
+        gsap.set(this.target, { autoAlpha: 0, clearProps: "transform" });
+      },
+    });
+  });
+
+  function triggerDrag(event: MouseEvent | TouchEvent, index: number) {
+    const clone = inventoryRef.value?.querySelector(`.clones .block-preview:nth-child(${index + 1})`) as HTMLElement;
+    if (!clone) return;
+
+    const { left, top } = getDistanceToWrapper(event.target as HTMLElement);
+    gsap.set(clone, { left, top, autoAlpha: 1 });
+
+    const draggableInstance = Draggable.get(clone);
+    draggableInstance.startDrag(event);
+  }
+
+  function getDistanceToWrapper(element: HTMLElement) {
+    var e1Rect = element.getBoundingClientRect();
+    var e2Rect = scrollWrapperRef.value!.getBoundingClientRect();
+    const left = e1Rect.left - e2Rect.left;
+    const top = e1Rect.top - e2Rect.top;
+    return { left, top };
+  }
 
   function showLabel(e: MouseEvent, id: BlockTypeId) {
     const target = e.target as HTMLElement;
@@ -36,20 +91,27 @@
 
 <template>
   <div class="modal" @click="closeInventory">
-    <div class="inventory">
+    <div class="inventory" ref="inventoryRef">
       <div class="search-bar">
         <label for="search-input">Search Items</label>
         <input type="text" id="search-input" />
       </div>
-      <div class="slots">
+      <div class="clones">
+        <block-preview v-for="block in Object.values(BlockTypeId)" :key="block" :block-type-id="block" draggable="true" />
+      </div>
+      <div class="slots" ref="scrollWrapperRef">
         <div
-          v-for="block in Object.values(BlockTypeId)"
+          v-for="(block, index) in Object.values(BlockTypeId)"
           :key="block"
           class="slot"
           @mouseenter="showLabel($event, block)"
           @mouseleave="hideLabel"
         >
-          <block-preview :block-type-id="block" />
+          <block-preview
+            :block-type-id="block"
+            @mousedown="triggerDrag($event, index)"
+            @touchstart="triggerDrag($event, index)"
+          />
           <div class="label">{{ focusedBlockName }}</div>
         </div>
       </div>
@@ -86,7 +148,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background: red;
     background: #c6c6c6;
     border: 3px solid black;
     box-shadow: -6px -6px 0 0 rgba(black, 0.6) inset, 6px 6px 0 0 rgba(white, 1) inset;
@@ -151,17 +212,35 @@
       }
     }
 
+    .clones {
+      position: absolute;
+
+      .block-preview {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
     .slots {
       display: flex;
       flex-wrap: wrap;
       height: 60px * 5;
       width: 60px * 9;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
       overflow: auto;
+      z-index: 10;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     .hot-bar {
       display: flex;
       margin-top: 20px;
+      bottom: 20px;
     }
 
     .label {
@@ -174,8 +253,7 @@
       top: 0;
       padding: 5px 10px;
       white-space: nowrap;
-      // width: max-content;
-      // max-width: 200px;
+      user-select: none;
 
       &[data-direction="right"] {
         left: 100%;
@@ -194,7 +272,8 @@
       box-shadow: 3px 3px 0 0 rgba(black, 0.6) inset, -3px -3px 0 0 rgba(white, 1) inset;
       background: #8a8a8a;
 
-      &:hover {
+      &:hover,
+      &.will-drop {
         background: rgba(255, 255, 255, 0.5);
 
         .label {

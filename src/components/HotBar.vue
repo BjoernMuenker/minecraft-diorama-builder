@@ -1,22 +1,30 @@
 <script setup lang="ts">
-  import { computed } from "@vue/reactivity";
+  import { computed, ref } from "@vue/reactivity";
   import { appStateStore } from "../store/modules/AppState";
+  import { BlockTypeId } from "../types/BlockTypeId";
   import { toBlockName } from "../utils/filter";
   import BlockPreview from "./BlockPreview.vue";
+
+  const activeSlotIndex = ref(0);
 
   const selectedBlockName = computed(() => {
     return toBlockName(appStateStore.selectedBlockTypeId);
   });
+
+  function onMouseEnter(block: BlockTypeId, index: number) {
+    appStateStore.setSelectedBlockTypeId(block);
+    activeSlotIndex.value = index;
+  }
 </script>
 
 <template>
   <div class="hot-bar">
     <div class="selected-block-type">{{ selectedBlockName }}</div>
     <div
-      v-for="block in appStateStore.hotBarItems"
-      class="quick-slot"
-      :class="{ active: block === appStateStore.selectedBlockTypeId }"
-      @mouseenter="appStateStore.setSelectedBlockTypeId(block)"
+      v-for="(block, index) in appStateStore.hotBarItems"
+      class="slot"
+      :class="{ active: index === activeSlotIndex }"
+      @mouseenter="onMouseEnter(block, index)"
     >
       <block-preview :block-type-id="block" />
     </div>
@@ -47,15 +55,14 @@
       border: 3px solid black;
     }
 
-    .quick-slot {
+    .slot {
       position: relative;
       width: 60px;
       height: 60px;
       flex-shrink: 0;
       cursor: pointer;
 
-      &.active::before,
-      &:hover::before {
+      &.active::before {
         content: "";
         position: absolute;
         width: calc(100% + 12px);
@@ -74,20 +81,6 @@
       width: 100%;
       text-align: center;
       font-size: 18px;
-    }
-  }
-
-  .tile {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    box-shadow: 0px 0px 0px 2px inset white;
-    // border: 2px solid #eee;
-    background: #ccc;
-
-    &:hover {
-      animation: blink infinite 1s;
     }
   }
 </style>

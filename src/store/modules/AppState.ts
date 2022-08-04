@@ -6,6 +6,7 @@ import { BlockPosition } from "../../types/blockPosition";
 import { isSpaceAlreadyTaken, isOutOfBounds } from "../../utils/blockUtils";
 import { Howl } from "howler";
 import { randFromArray } from "../../utils/objectUtils";
+import { GLOBAL_CONFIG } from "../../config/globalConfig";
 @Module({ dynamic: true, store, namespaced: true, name: "AppStateStoreModule" })
 class AppStateStoreModule extends VuexModule {
   private _hotBarItems = [
@@ -146,6 +147,13 @@ class AppStateStoreModule extends VuexModule {
   toggleInventory() {
     this._sound.play("click");
     this._inventoryOpen = !this._inventoryOpen;
+  }
+
+  @Mutation
+  updateHotBarItem(payload: { index: number; blockTypeId: BlockTypeId }) {
+    if (payload.index >= 0 && payload.index < GLOBAL_CONFIG.MAX_HOT_BAR_SLOTS) {
+      this._hotBarItems[payload.index] = payload.blockTypeId;
+    }
   }
 }
 

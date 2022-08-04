@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { computed, ref, onBeforeUnmount, onMounted } from "vue";
   import { appStateStore } from "./store/modules/AppState";
+  import { GLOBAL_CONFIG } from "./config/globalConfig";
   import HotBar from "./components/HotBar.vue";
   import Block from "./components/PlacedBlock.vue";
   import GroundTiles from "./components/GroundTiles.vue";
@@ -9,8 +10,8 @@
   const wrapperElem = ref(null);
 
   onMounted(() => {
-    console.log("mounted App.vue");
     document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("contextmenu", onContextMenu);
   });
 
   onBeforeUnmount(() => {
@@ -21,6 +22,10 @@
     return appStateStore.debug;
   });
 
+  function onContextMenu(event: MouseEvent) {
+    if (!debug.value) event.preventDefault();
+  }
+
   function onKeyDown(event: KeyboardEvent) {
     switch (event.key) {
       case "Dead":
@@ -28,7 +33,11 @@
         break;
 
       case "Escape":
-        appStateStore.removeAllBlocks();
+        if (appStateStore.inventoryOpen) {
+          appStateStore.closeInventory();
+        } else {
+          appStateStore.removeAllBlocks();
+        }
         appStateStore.playSound("click");
         break;
 
@@ -62,7 +71,10 @@
 </script>
 
 <template>
-  <div v-if="debug">debug is here</div>
+  <div v-if="debug" class="debug">
+    <div>placedBlocks: {{ appStateStore.placedBlocks.length }}</div>
+    <div>vertices: {{ appStateStore.placedBlocks.length * 6 + GLOBAL_CONFIG.MAX_BLOCKS.X * GLOBAL_CONFIG.MAX_BLOCKS.Y }}</div>
+  </div>
 
   <div class="canvas-wrapper">
     <div class="perspective-wrapper">
@@ -136,6 +148,12 @@
     }
   }
 
+  .debug {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
   @mixin generate-color-classes {
     @each $name, $value in $colors {
       .background-#{$name},
@@ -167,6 +185,10 @@
   }
 
   * {
+    font-family: "Minecraft", monospace;
+    font-variant-ligatures: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
   }
 
@@ -174,12 +196,5 @@
   body {
     margin: 0;
     padding: 0;
-  }
-
-  * {
-    font-family: "Minecraft", monospace;
-    font-variant-ligatures: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 </style>
